@@ -1,24 +1,16 @@
 package belov.kursovaja_3_kurs.service;
 
+import belov.kursovaja_3_kurs.exception.NoSocksException;
 import belov.kursovaja_3_kurs.model.Color;
-import belov.kursovaja_3_kurs.model.Size;
-import belov.kursovaja_3_kurs.model.Socks;
-
-import java.util.HashMap;
-import java.util.Map;
+import belov.kursovaja_3_kurs.model.Sock;
 
 public interface SocksService {
 
 
-    void addSocks(Socks socks, int value);
+    void addSocks(Sock sock, int value);
 
-    Map<Socks, Integer> getSocksMap();
 
-    Map<Socks, Integer> cottonMin(int cottonMinValue, Map<Socks, Integer> socksSatisfyingParameters);
-
-    Map<Socks, Integer> cottonMax(int cottonMaxValue, Map<Socks, Integer> socksWithCottonOverMin);
-
-    void issueOrDeleteSocks(Socks socks, int value);
+    void issueOrDeleteSocks(Sock sock, int value) throws NoSocksException;
 
 
     int getTheTotalNumberOfSocksByParameters(Color color, int size, Integer minValueCotton, int maxValueCotton);
